@@ -21,7 +21,7 @@ function App() {
   return (
     <>
       <Form formData={data} setFormData={setData} formStatus={formStatus} setFormStatus={setFormStatus}/>
-      <Resume resumeData={data}/>
+      <Resume resumeData={data} formStatus={formStatus}/>
     </>
   )
 }

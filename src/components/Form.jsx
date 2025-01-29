@@ -12,8 +12,18 @@ function Form({formData,setFormData,formStatus,setFormStatus}) {
     setFormData(currentData);
   }
 
+  function removeEdField(index) {
+    currentData['Education'].splice(index,1);
+    setFormData(currentData);
+  }
+
   function addWkField(e) {
     currentData['Experience'].push({'Name':'','Start':'','End':''});
+    setFormData(currentData);
+  }
+
+  function removeWkField(index) {
+    currentData['Experience'].splice(index,1);
     setFormData(currentData);
   }
 
@@ -45,6 +55,7 @@ function Form({formData,setFormData,formStatus,setFormStatus}) {
                   <input type="text" placeholder='Institution name' onChange={(e) => currentData['Education'][index]['Name']=e.target.value}/>
                   <input type="text" placeholder='Degree' onChange={(e) => currentData['Education'][index]['Degree']=e.target.value}/>
                   <input type="text" placeholder='Year of graduation' onChange={(e) => currentData['Education'][index]['Year']=e.target.value}/>
+                  <input type="button" value="Remove" onClick={() => removeEdField(index)}/>
                 </div>
               </>
             )
@@ -63,6 +74,7 @@ function Form({formData,setFormData,formStatus,setFormStatus}) {
                   <input type="text" placeholder='Company name' onChange={(e) => currentData['Experience'][index]['Name']=e.target.value}/>
                   <input type="text" placeholder='Start date' onChange={(e) => currentData['Experience'][index]['Start']=e.target.value}/>
                   <input type="text" placeholder='End date' onChange={(e) => currentData['Experience'][index]['End']=e.target.value}/>
+                  <input type="button" value="Remove" onClick={() => removeWkField(index)}/>
                 </div>
               </>
             )
